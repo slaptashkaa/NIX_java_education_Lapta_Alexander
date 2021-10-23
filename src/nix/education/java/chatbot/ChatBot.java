@@ -8,6 +8,7 @@ public class ChatBot {
         remaindName();
         remaindAge();
         numberOutput();
+        testAnswer();
     }
 
     public static void welcomeMessage() {
@@ -53,6 +54,23 @@ public class ChatBot {
         while (number >= i) {
             System.out.println(i + "!");
             i++;
+        }
+    }
+
+    public static void testAnswer() {
+        Scanner scan = new Scanner(System.in);
+
+        int trueAnswer = 0;
+
+        while ( trueAnswer == 0 ) {
+            System.out.println("What programming language is this program written in?\n1. Java\n2. Python\n3. Kotlin\n4. JavaScript");
+            int answer = scan.nextInt();
+            if(answer == 1) {
+                System.out.println("Great, you right!");
+                trueAnswer = 1;
+            } else {
+                System.out.print("Please, try again. ");
+            }
         }
     }
 }
