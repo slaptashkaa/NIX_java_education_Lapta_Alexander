@@ -1,8 +1,10 @@
 package nix.education.java.chatbot;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class ChatBot {
+
     public static void main(String[] args) {
         welcomeMessage();
         remaindName();
@@ -14,7 +16,6 @@ public class ChatBot {
     public static void welcomeMessage() {
         final String bot_name = "Aboba";
         final int birth_year = 2021;
-
         System.out.printf("Hello, my name is %s\n" +
                 "I was created in %d\n", bot_name, birth_year);
     }
@@ -59,15 +60,30 @@ public class ChatBot {
 
     public static void testAnswer() {
         Scanner scan = new Scanner(System.in);
+        int isTrueAnswer = 0;
 
-        int trueAnswer = 0;
+        while ( isTrueAnswer == 0 ) {
+            int trueAnswer = new Random().nextInt(4) + 1;
 
-        while ( trueAnswer == 0 ) {
-            System.out.println("What programming language is this program written in?\n1. Java\n2. Python\n3. Kotlin\n4. JavaScript");
+            switch (trueAnswer) {
+                case 1:
+                    System.out.println("What programming language is this program written in?\n1. Java\n2. Python\n3. Kotlin\n4. JavaScript");
+                    break;
+                case 2:
+                    System.out.println("What programming language is this program written in?\n1. Python\n2. Java\n3. Kotlin\n4. JavaScript");
+                    break;
+                case 3:
+                    System.out.println("What programming language is this program written in?\n1. Kotlin\n2. Python\n3. Java\n4. JavaScript");
+                    break;
+                case 4:
+                    System.out.println("What programming language is this program written in?\n1. JavaScript\n2. Python\n3. Kotlin\n4. Java");
+                    break;
+            }
+
             int answer = scan.nextInt();
-            if(answer == 1) {
+            if(answer == trueAnswer) {
                 System.out.println("Great, you right!");
-                trueAnswer = 1;
+                isTrueAnswer = 1;
             } else {
                 System.out.print("Please, try again. ");
             }
